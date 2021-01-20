@@ -17,6 +17,7 @@ class PatientController extends Controller
     private $BaseRepository;
     public function __construct()
     {
+        $this->user = auth('api')->user();
         $this->BaseRepository = new BaseRepository(new Patient());
     }
     public function index(Request $request)
