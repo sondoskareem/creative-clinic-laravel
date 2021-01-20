@@ -81,7 +81,7 @@ class PatientController extends Controller
         if($request->hasFile('files')){
             $file = $request->file('files');
             $name = Str::slug('image').'_'.time();
-            $folder = '/uploads/images/';
+            $folder = '/uploads/files/';
             $filePath = $folder . $name. '.' . $file->getClientOriginalExtension();
             $this->uploadOne($file, $folder, 'public', $name);
             $request['file']= $filePath;
@@ -104,7 +104,7 @@ class PatientController extends Controller
             'name' => $options."required|string|min:4", 
             'phone' => $options."required|integer|min:6", 
             'password' => $options."required|string|min:6", 
-            'file' => $options.'required|mimes:csv,txt,xlx,xls,pdf,jpeg,png,jpg,gif,svg',
+            'file' => $options.'required|mimes:csv,txt,xlx,xls,pdf,jpeg,png,jpg,gif,svg|max:2048',
             'age' => $options."required|integer", 
             'condition' => $options."required|string", 
           
