@@ -22,10 +22,10 @@ class PatientController extends Controller
     }
     public function index(Request $request)
     {
-        $request->validate([
-            'skip' => 'Integer',
-            'take' => 'required|Integer'
-        ]);
+        // $request->validate([
+        //     'skip' => 'Integer',
+        //     'take' => 'required|Integer'
+        // ]);
 
         //Param
         $conditions = json_decode($request->filter, true);
